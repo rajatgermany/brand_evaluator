@@ -25,7 +25,7 @@ It is deployed on google kubernetes cluster
     3. Clean separation of environment variables.
     4. Results are saved in postgresDb
 -  Tweet Analyzer
-    1. Implemented NLP sentiment analysis model using Keras 
+    1. Implemented NLP sentiment analysis model using Keras (/backend/src/app/ml_model_2)
     2. Used NLTK for tweet analysis
     3. Used Twitter Api and tweepy libary to fetch the real time tweets.
     
