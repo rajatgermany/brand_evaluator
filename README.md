@@ -35,3 +35,11 @@ It is deployed on google kubernetes cluster
 - Kubernetes is used to deploy the microservices on google cloud platform
 - App is available at - http://34.65.150.243/ 
 - Backend swagger docs at - http://34.65.245.120/docs
+- Run docker-compose up to develop
+
+## Future Work
+- Add real time streaming using Kafka and process the tweets using pyspark.
+-  Improve sentiment analysis model. I want to try few more model architectures like BILstm along with attention for catching up sarcasm. 
+-  Perform context analysis by gathering more user related data.
+-  Improve the UI by adding more intitutive plots.
+
