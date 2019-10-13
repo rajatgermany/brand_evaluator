@@ -1,0 +1,33 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: postgres
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        service: postgres
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:11
+          ports:
+            - containerPort: 5432
+          env:
+            - name: SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: webapp-secret
+                  key: SECRET_KEY
+            - name: POSTGRES_PASSWORD
+          envFrom:
+          - configMapRef:
+              name: webapp-configmap
+          volumeMounts:
+            - mountPath: "/var/lib/postgresql/data"
+              name: "webapp-pgdata"
+      volumes:
+        - hostPath:
+            path: "/home/docker/pgdata"
+          name: webapp-pgdata

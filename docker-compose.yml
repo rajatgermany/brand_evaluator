@@ -1,0 +1,52 @@
+version: '3.7'
+# This files startups up following five services
+services:
+  # Frontend service - React
+  frontend_service:
+    build: ./frontend/
+    volumes:
+      - ./frontend/src:/usr/src/app/src
+      - ./frontend/public:/usr/src/app/public
+    ports:
+      - 3000:80
+    container_name: frontend_container
+    image: 'frontend_image:latest'    
+    environment:
+      - NODE_ENV=development
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - backend_service
+  backend_service:
+    # Backend API service 
+    build: ./backend
+    volumes:
+      - ./backend/src/:/app
+    image: 'backend_service:latest'    
+    ports:
+      - '8888:8888'
+      - '80:80'
+    env_file:
+      - ./.envs/local-backend.env
+      - ./.envs/local-secrets.env
+    container_name: backend_service_container
+    depends_on:
+      - postgres
+  pgadmin:
+    # Pgadmin ui for the database
+    image: dpage/pgadmin4
+    ports:
+      - '5050:5050'
+    env_file:
+      - ./.envs/local-pgadmin.env  
+    logging:
+      driver: none     
+    container_name: pgadmin_container
+    depends_on:
+      - postgres
+  postgres:
+    # Postgres DataBase 
+    image: postgres:11
+    env_file:
+      - ./.envs/local-backend.env
+      - ./.envs/local-secrets.env
+    container_name: postgres_container

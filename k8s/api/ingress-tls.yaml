@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: webapp-backend-ingress-development
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    certmanager.k8s.io/cluster-issuer: letsencrypt-production
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/whitelist-source-range: "0.0.0.0/0"
+    ingress.kubernetes.io/whitelist-source-range: "0.0.0.0/0"
+    nginx.ingress.kubernetes.io/proxy-body-size: 300m
+    nginx.ingress.kubernetes.io/proxy-connect-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-read-timeout: "60"
+    nginx.ingress.kubernetes.io/proxy-send-timeout: "60"
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/server-snippet: |
+      if ($request_uri = /prometheus) {
+         return 403;
+      }
+spec:
+  tls:
+  - hosts:
+    - energy-mal-development.dev.k8s.azure.akelius.com
+    secretName: le-energy-mal-ingress-development-tls
+  rules:
+  - host: energy-mal-development.dev.k8s.azure.akelius.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: energy-machine-learning-api-service-development
+          servicePort: 80

@@ -1,0 +1,32 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: webapp-configmap
+data:
+  # Backend settings
+  # DOMAIN: https://energy-mal-development.dev.k8s.azure.akelius.com/
+  # SERVER_NAME: https://energy-mal-development.dev.k8s.azure.akelius.com/
+  # SERVER_HOST: https://energy-mal-development.dev.k8s.azure.akelius.com/
+  # BACKEND_CORS _ORIGINS: http://localhost:8888, http://localhost, http://localhost:4200, http://localhost:3000, http://localhost:8080, https://localhost, https://localhost:4200, https://localhost:3000, https://localhost:8080, https://base-machine-learning-api-development.dev.k8s.azure.akelius.com/, https://base-machine-learning-api-production.prod.k8s.azure.akelius.com/, https://base-machine-learning-api-staging.stage.k8s.azure.akelius.com/
+  # PROJECT_NAME: webapp-backend
+
+  DOMAIN: localhost
+  SERVER_NAME: localhost
+  SERVER_HOST: localhost
+  BACKEND_CORS_ORIGINS: http://localhost:8888, http://localhost, http://localhost:4200, http://localhost:3000, http://localhost:8080, https://localhost, https://localhost:4200, https://localhost:3000, https://localhost:8080, https://base-machine-learning-api-dev.dev.k8s.azure.akelius.com/, https://base-machine-learning-api-prod.prod.k8s.azure.akelius.com/, https://base-machine-learning-api-stage.stage.k8s.azure.akelius.com/
+  PROJECT_NAME: webapp-backend
+
+
+  POSTGRES_SERVER: http://postgres-service:5432
+  POSTGRES_USER: postgres
+  POSTGRES_PASSWORD: changethis
+  POSTGRES_DB: app
+
+  # # Database
+  # POSTGRES_SERVER: machine-learning-development-database.postgres.database.azure.com
+  # POSTGRES_USER: mladmin@machine-learning-development-database
+  # POSTGRES_DB: energy-ml-development
+
+
+  # Gunicorn config
+  WORKERS_PER_CORE: "0.25" # Our k8s has 8 cores, so start 2 workers

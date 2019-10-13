@@ -1,0 +1,46 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: backend
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backend
+      annotations:
+        prometheus.io/scrape: 'true'
+        prometheus.io/path: /metrics
+        prometheus.io/port: '80'
+    spec:
+      containers:
+      - name: backend
+        image: backend_docker2:latest
+        imagePullPolicy: Never
+        resources:
+          requests:
+            memory: 512Mi
+            cpu: "0.05"
+          limits:
+            memory: 2048Mi
+            cpu: "2.0"
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
+          initialDelaySeconds: 60
+          periodSeconds: 30
+          failureThreshold: 10
+        env:
+        - name: SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: webapp-secret
+              key: SECRET_KEY
+        envFrom:
+        - configMapRef:
+            name: webapp-configmap
+
+      
