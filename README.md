@@ -21,11 +21,12 @@ It is deployed on google kubernetes cluster
 - Frontend is built using create-react-pp
 - Backend is built using FastApi. Here are some following features I implemented
     1. Both request and response are throughly validated.
-    2. Project implements pydantic typing to type.
+    2. Project implements pydantic typing.
     3. Clean separation of environment variables.
     4. Results are saved in postgresDb
+    5. Api source code - **/backend/src/app/api/**
 -  Tweet Analyzer
-    1. Implemented NLP sentiment analysis model using Keras (/backend/src/app/ml_model_2)
+    1. Implemented NLP sentiment analysis model using **Keras (/backend/src/app/ml_model_2)**
     2. Used NLTK for tweet analysis
     3. Used Twitter Api and tweepy libary to fetch the real time tweets.
     
