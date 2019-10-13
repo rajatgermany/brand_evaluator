@@ -1,7 +1,7 @@
 # Brand Evalautor
 ## About
 Its a novel web application to built to evaluate the presence of a brand on twitter by checking the sentiments of the people's
-tweets and topic on which they are talking about. This can help the brands to evaluate the performance in real time for example for their new product or campaign lauch. 
+tweets and topic on which they are talking about. This can help the brands to evaluate the performance in real time for instance for their new product or campaign lauch this can help to generate marketing reports. 
 
 ## How to use it
 The user need to type the name of the product or campaign in searchbar.
