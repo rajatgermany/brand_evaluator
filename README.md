@@ -1,6 +1,6 @@
 # Brand Evalautor
 ## About
-Its a novel web application to built to evaluate the presence of a brand on twitter by checking the sentiments of the people's
+Its a novel web application backed by deep learning model built to evaluate the presence of a brand on twitter by checking the sentiments of the people's
 tweets and topic on which they are talking about. This can help the brands to evaluate the performance in real time for instance for their new product or campaign lauch this can help to generate marketing reports. 
 
 ## How to use it
