@@ -25,21 +25,23 @@ The user need to type the name of the product or campaign in searchbar.
     1. Implemented NLP sentiment analysis model using **Keras (/backend/src/app/ml_model_2)**
     2. Used NLTK for tweet analysis
     3. Used Twitter Api and tweepy libary to fetch the real time tweets.
+- Microservices orchestration
+   1. docker-compose for development
+   2. Kubernetes for production. Currently configs are valid for google cloud
 
 ## ProjectSetup
 - git clone git clone git@github.com:rajatgermany/brand_evaluator.git
-- cd brand_evaluator/frontend
-- npm install
-- npm run build
-- cd ..
+- cd brand_evaluator
+- chmod + ./scripts/setup.sh
+- ./scripts/setup.sh
+- App is available at - http://localhost:3000
+- Backend swagger docs at - http://localhost/docs
 
 ## Development && Deployment
 - Fully Dockerized envoirment for both development and production.
 - Docker compose is used in the development to orchestrate microservices.
 - Kubernetes is used to deploy the microservices on google cloud platform
-- App is available at - http://34.65.150.243/ 
-- Backend swagger docs at - http://34.65.245.120/docs
-- Run docker-compose up to develop
+- Configs for kubernetes clusters are in k8s/
 
 ## Future Work
 - Add real time streaming using Kafka and process the tweets using pyspark.
