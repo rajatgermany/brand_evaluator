@@ -6,11 +6,7 @@ tweets and topic on which they are talking about. This can help the brands to ev
 ## How to use it
 The user need to type the name of the product or campaign in searchbar.
 
-## check the app -  http://34.65.150.243/ 
-It is deployed on google kubernetes cluster
-
 ![alt text](./img/img.png)
-
 
 ## Technical Details
 - Implemented Microservices architecture. It has four services each running as different docker container
@@ -29,7 +25,14 @@ It is deployed on google kubernetes cluster
     1. Implemented NLP sentiment analysis model using **Keras (/backend/src/app/ml_model_2)**
     2. Used NLTK for tweet analysis
     3. Used Twitter Api and tweepy libary to fetch the real time tweets.
-    
+
+## ProjectSetup
+- git clone git clone git@github.com:rajatgermany/brand_evaluator.git
+- cd brand_evaluator/frontend
+- npm install
+- npm run build
+- cd ..
+
 ## Development && Deployment
 - Fully Dockerized envoirment for both development and production.
 - Docker compose is used in the development to orchestrate microservices.
