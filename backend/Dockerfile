@@ -6,13 +6,13 @@ RUN pip install --install-option="--prefix=/install" pipenv
 # Final image:
 # if slim does not work change it to python:3.7
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+RUN apt-get update 
 RUN apt-get update --fix-missing
 
 ENV PYTHONUNBUFFERED 1
 EXPOSE 8888
 # getting requirements from base image
 COPY --from=builder /install /usr/local
-COPY ./crts/root.crt /root/.postgresql/root.crt
 # copying source files into app folder of container
 COPY ["Pipfile", "Pipfile.lock", "ospackages.txt", "./"]
 # install system dependencies from ospackages.txt
