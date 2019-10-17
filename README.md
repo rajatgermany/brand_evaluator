@@ -30,6 +30,7 @@ The user need to type the name of the product or campaign in searchbar.
    2. Kubernetes for production. Currently configs are valid for google cloud
 
 ## ProjectSetup
+- Need to install node.js and docker
 - git clone git@github.com:rajatgermany/brand_evaluator.git
 - cd brand_evaluator
 - chmod + x ./scripts/setup.sh
