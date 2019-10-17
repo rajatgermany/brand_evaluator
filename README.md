@@ -32,7 +32,7 @@ The user need to type the name of the product or campaign in searchbar.
 ## ProjectSetup
 - git clone git@github.com:rajatgermany/brand_evaluator.git
 - cd brand_evaluator
-- chmod + ./scripts/setup.sh
+- chmod + x ./scripts/setup.sh
 - ./scripts/setup.sh
 - App is available at - http://localhost:3000
 - Backend swagger docs at - http://localhost/docs
